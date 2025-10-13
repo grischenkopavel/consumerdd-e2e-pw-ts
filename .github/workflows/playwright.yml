@@ -1,0 +1,42 @@
+name: Playwright Tests
+on:
+  workflow_dispatch:
+    inputs:
+      worker_count:
+        description: 'Number of parallel workers'
+        type: number
+        default: 3
+      environment:
+        description: 'Environment to run tests against'
+        type: choice
+        options:
+          - stage
+          - prod
+        default: 'prod'
+        required: true
+  #schedule:
+  #  - cron: '0 4 * * *' # every day at 4:00 UTC
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    env:
+      BASE_URL: ${{ github.event.inputs.environment == 'prod' && 'https://fcvcstage.onemagnify.com' || 'https://fordcommercialvehiclecenter.com' }}
+      WORKER_COUNT: ${{ github.event.inputs.worker_count || 3 }}
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    - name: Run Playwright tests
+      run: npx playwright test
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: playwright-report-${{ github.event.inputs.environment }}
+        path: playwright-report/
+        retention-days: 30

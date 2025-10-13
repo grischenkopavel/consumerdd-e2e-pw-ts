@@ -1,0 +1,21 @@
+{
+  "name": "consumerdd-e2e-pw-ts",
+  "version": "1.0.0",
+  "description": "Consumer Dealer Directory e2e test",
+  "keywords": [
+    "Consumer;",
+    "e2e"
+  ],
+  "license": "ISC",
+  "author": "Pavlo Hryshchenko",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {},
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.7.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
