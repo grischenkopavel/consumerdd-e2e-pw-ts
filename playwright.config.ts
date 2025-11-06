@@ -33,14 +33,17 @@ export default defineConfig({
     screenshot: { mode: "only-on-failure", fullPage: true },
     video: "retain-on-failure",
     actionTimeout: 20 * 1000,
-    viewport: {width: 1920, height: 1080}
+    viewport: { width: 1920, height: 1080 },
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+        viewport: { width: 1920, height: 1080 },
+      },
     },
 
     // {
