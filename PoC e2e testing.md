@@ -6,10 +6,11 @@
 
 > [!CAUTION]
 >
-> - flaky UI test example: tests\search.dealername.param.spec -> 'arundel ford'
+> - flaky UI test example: tests\search.dealername.param.spec -> 'caruso' {timeout: 3000 -> 500ms}
+> - API tests are more stable and faster than UI tests
 
 > [!NOTE]
 >
 > # Notes for the DEV team
 >
-> - need id for the most important HTML elements (buttons, text boxes, check boxes, etc ). Good example Consumer DD - hard to find solid CSS/XPath for search dealer card {div[class*="dealer-card"] p[class*="heading6"]}. By the way for the API tests its' not needed
+> - need "id" or "data-testid" for the most important HTML elements (buttons, text boxes, check boxes, etc ). Good example Consumer DD - hard to find solid CSS/XPath for search dealer card {div[class*="dealer-card"] p[class*="heading6"]}. By the way for the API tests its' not needed

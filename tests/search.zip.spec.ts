@@ -98,7 +98,7 @@ test.describe(
         });
         const dealerCard: Locator = page.locator('[class*="dealer-card"]');
 
-        await searchByZip.fill(`${randomZipCode}`);
+        await searchByZip.fill(`${wrongZipCode}`);
         await searchByZip.press('Enter');
 
         await expect(resultsLabel).toHaveText(/No Results/);

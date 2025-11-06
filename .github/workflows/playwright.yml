@@ -14,8 +14,8 @@ on:
           - prod
         default: 'prod'
         required: true
-  #schedule:
-  #  - cron: '0 4 * * *' # every day at 4:00 UTC
+  schedule:
+    - cron: '0 4 * * *' # every day at 4:00 UTC
 jobs:
   test:
     timeout-minutes: 60

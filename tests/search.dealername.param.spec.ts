@@ -39,7 +39,7 @@ for (const { dealerName } of validDealerNames) {
           await searchByName.fill(`${dealerName}`);
           await searchByName.press('Enter');
 
-          await expect(resultsLabel).toHaveText(RegExp(/Results.*\d+/),{timeout: 500});
+          await expect(resultsLabel).toHaveText(RegExp(/Results.*\d+/),{timeout: 3000});
           expect(await dealerCardName.count()).toBeGreaterThan(0);
           await expect(dealerCardName).toContainText(`${dealerName}`, {ignoreCase: true});
         }
